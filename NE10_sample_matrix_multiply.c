@@ -232,6 +232,19 @@ void matrix_multiply_compute()
 	//timersub(&time_stop, &time_start, &time_diff);
 	//time_cost = time_diff.tv_sec * 1000000.0 + time_diff.tv_usec;
 	printf("neon matrix multiply time cost %1.3f ms\n", time_cost / 1000.0);
+	
+	for (int i = 0; i < num; i++)
+	{
+		free(srcmat[i]);
+		free(mulmat[i]);
+		free(dstmat[i]);
+		free(neon_dstmat[i]);
+	}
+
+	free(srcmat);
+	free(mulmat);
+	free(dstmat);
+	free(neon_dstmat);
 }
 
 
